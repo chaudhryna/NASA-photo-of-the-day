@@ -5,27 +5,23 @@ const token = config.MY_API_TOKEN
 document.querySelector('button').addEventListener('click', getPic)
 
 function getPic() {
-  // const searchDate = document.querySelector('input').value
 
   function randomDate(start, end) {
     return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
   }
 
-  const searchDate = randomDate(new Date(1995, 06, 16), new Date());
-  console.log(d);
+  const dateToFormat = randomDate(new Date(1995, 06, 20), new Date());
+  const searchDate = dateToFormat.toISOString().substring(0, 10);
+  console.log(searchDate);
 
-  const url = `https://api.nasa.gov/planetary/apod?api_key=${token
-}=${searchDate}`
+  const url = `https://api.nasa.gov/planetary/apod?api_key=${token}=${searchDate}`
 
-  // if (searchDate < '1995-06-16') {
-  //   document.querySelector('h2').innerText = 'No picture found for that date. Photo requests must be after 06/16/1995'
-  // } else {
+
 
   fetch(url)
     .then(res => res.json()) // parse response as JSON
       .then(data => {
-        console.log(data)
-        document.querySelector('h2').innerText = data.title
+        
         if (data.media_type === 'image') {
           document.querySelector('iframe').src = ""
           document.querySelector('img').src = data.url 
@@ -33,6 +29,7 @@ function getPic() {
           document.querySelector('img').src = ""
           document.querySelector('iframe').src = data.url
         }
+        document.querySelector('h2').innerText = data.title
         document.querySelector('p').innerText = data.explanation
       })
       .catch(err => {
