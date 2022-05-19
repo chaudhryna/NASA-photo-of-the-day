@@ -1,6 +1,5 @@
-//The user will enter a date. Use that date to get the NASA picture of the day from that date! https://api.nasa.gov/
-
-const token = config.MY_API_TOKEN
+//The user will click the button. The program will generate a random date to get the NASA picture of the day for that date! https://api.nasa.gov/
+const token = process.env.API_KEY
 
 document.querySelector('button').addEventListener('click', getPic)
 
@@ -21,7 +20,7 @@ function getPic() {
   fetch(url)
     .then(res => res.json()) // parse response as JSON
       .then(data => {
-        
+        document.querySelector('.container').classList.remove('hidden')
         if (data.media_type === 'image') {
           document.querySelector('iframe').src = ""
           document.querySelector('img').src = data.url 
