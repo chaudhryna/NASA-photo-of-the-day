@@ -1,5 +1,5 @@
 //The user will click the button. The program will generate a random date to get the NASA picture of the day for that date! https://api.nasa.gov/
-const token = process.env.API_KEY
+const token = config.TOKEN;
 
 document.querySelector('button').addEventListener('click', getPic)
 
