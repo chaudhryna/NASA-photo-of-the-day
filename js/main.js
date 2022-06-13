@@ -11,7 +11,6 @@ function getPic() {
 
   const dateToFormat = randomDate(new Date(1995, 06, 20), new Date());
   const searchDate = dateToFormat.toISOString().substring(0, 10);
-  console.log(searchDate);
 
   const url = `https://api.nasa.gov/planetary/apod?api_key=${token}=${searchDate}`
 
