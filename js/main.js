@@ -1,6 +1,6 @@
+import TOKEN from 'js/config.js';
 //The user will click the button. The program will generate a random date to get the NASA picture of the day for that date! https://api.nasa.gov/
 // const TOKEN = config.TOKEN;
-import TOKEN from 'js/config.js';
 
 document.querySelector('button').addEventListener('click', getPic)
 
