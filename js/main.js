@@ -1,5 +1,5 @@
 //The user will click the button. The program will generate a random date to get the NASA picture of the day for that date! https://api.nasa.gov/
-// const TOKEN = config.TOKEN;
+const TOKEN = config.TOKEN;
 
 document.querySelector('button').addEventListener('click', getPic)
 
@@ -12,7 +12,7 @@ function getPic() {
   const dateToFormat = randomDate(new Date(1995, 06, 20), new Date());
   const searchDate = dateToFormat.toISOString().substring(0, 10);
 
-  const url = `https://api.nasa.gov/planetary/apod?api_key=${token}=${searchDate}`
+  const url = `https://api.nasa.gov/planetary/apod?api_key=${TOKEN}=${searchDate}`
 
 
 
